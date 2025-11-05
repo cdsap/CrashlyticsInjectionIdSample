@@ -4,6 +4,7 @@ plugins {
     alias(libs.plugins.android.application)
     id("com.google.firebase.crashlytics")
     id("com.google.gms.google-services")
+    id("kotlin-android")
 }
 
 android {
@@ -53,19 +54,6 @@ dependencies {
 java {
     toolchain {
         languageVersion.set(JavaLanguageVersion.of("17"))
-    }
-}
-
-androidComponents {
-    onVariants(selector = selector().all()) {
-        it.configureJavaCompileTask {
-            println("1"+ it.path)
-        }
-        it.nestedComponents.forEach {
-            it.configureJavaCompileTask {
-                println("2"+it.path)
-            }
-        }
     }
 }
 

@@ -2,7 +2,7 @@ name: Build
 
 on:
     push:
-        branches: [ master]
+        branches: [ agp_8]
     pull_request:
 concurrency:
     group: build-${{ github.ref }}
