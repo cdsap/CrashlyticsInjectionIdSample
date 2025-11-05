@@ -1,4 +1,6 @@
 import com.google.firebase.crashlytics.buildtools.gradle.CrashlyticsExtension
+import com.google.firebase.crashlytics.buildtools.gradle.tasks.InjectBuildIdsTask
+import com.google.firebase.crashlytics.buildtools.gradle.tasks.InjectMappingFileIdTask
 
 plugins {
     alias(libs.plugins.android.application)
@@ -31,7 +33,7 @@ android {
                 "proguard-rules.pro"
             )
             configure<CrashlyticsExtension> {
-                mappingFileUploadEnabled = true
+                mappingFileUploadEnabled = false
             }
 
         }
@@ -60,3 +62,4 @@ dependencies {
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
 }
+
