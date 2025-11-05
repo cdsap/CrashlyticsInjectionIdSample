@@ -30,7 +30,7 @@ android {
                 "proguard-rules.pro"
             )
             configure<CrashlyticsExtension> {
-                mappingFileUploadEnabled = false
+                mappingFileUploadEnabled = true
             }
 
         }
