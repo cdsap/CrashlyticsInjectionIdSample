@@ -1,6 +1,6 @@
 package com.example.mylibrary
 
-Class Alo {
+class Alo {
     fun g() {
         println("s")
     }
