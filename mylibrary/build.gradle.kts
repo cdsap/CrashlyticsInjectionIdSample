@@ -5,9 +5,6 @@ plugins {
 android {
     namespace = "com.example.mylibrary"
     compileSdk = 36
-    buildFeatures {
-        dataBinding = true
-    }
     defaultConfig {
         minSdk = 24
 
