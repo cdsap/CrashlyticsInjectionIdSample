@@ -11,6 +11,7 @@ concurrency:
 jobs:
     build:
         strategy:
+            fail-fast: false
             matrix:
                 java: [17]
                 vendor: ["microsoft", "oracle","zulu","corretto","liberica"]
