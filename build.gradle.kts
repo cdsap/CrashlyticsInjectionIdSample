@@ -6,7 +6,7 @@ plugins {
     id("com.google.firebase.crashlytics") version "3.0.6" apply false
     id("com.google.gms.google-services") version "4.4.4" apply false
     id("io.github.cdsap.gradleprocess") version "0.3.0"
-    id("org.gradle.android.cache-fix") version "3.0.2" apply false
+    id("org.gradle.android.cache-fix") version "3.0.3" apply false
 
 }
 subprojects {
