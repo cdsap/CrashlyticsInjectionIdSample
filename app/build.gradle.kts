@@ -4,13 +4,16 @@ plugins {
     alias(libs.plugins.android.application)
     id("com.google.firebase.crashlytics")
     id("com.google.gms.google-services")
-    id("kotlin-android")
+    //  id("kotlin-android")
 }
 
 android {
     namespace = "com.example.myapplication"
     compileSdk = 36
 
+    buildFeatures {
+
+    }
     defaultConfig {
         applicationId = "com.example.myapplication"
         minSdk = 24
@@ -42,7 +45,7 @@ android {
 }
 
 dependencies {
-    implementation(project(":mylibrary"))
+    // implementation(project(":mylibrary"))
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.material)
@@ -57,3 +60,17 @@ java {
     }
 }
 
+
+androidComponents {
+    onVariants(selector = selector().all()) {
+        it.configureJavaCompileTask { compileTask ->
+            println("main configureJavaCompileTask " + compileTask.path)
+        }
+
+        it.nestedComponents.forEach {
+            it.configureJavaCompileTask {
+                println("nested " + it.path)
+            }
+        }
+    }
+}

@@ -39,5 +39,5 @@ dependencyResolutionManagement {
 
 rootProject.name = "My Application"
 include(":app")
-include(":mylibrary")
-include(":myapplication")
+//include(":mylibrary")
+//include(":myapplication")
