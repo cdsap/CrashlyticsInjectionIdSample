@@ -2,7 +2,7 @@ name: Build
 
 on:
     push:
-        branches: [ agp_8]
+        branches: [ caching_issues]
     pull_request:
 concurrency:
     group: build-${{ github.ref }}
@@ -32,6 +32,14 @@ jobs:
 
             - name: Execute test binary and cli
               run: |
-                  ./gradlew build connectedAndroidTest
+                  ./gradlew build connectedAndroidTest  -Dscan.tag.${{ matrix.vendor }}
               env:
                 DEVELOCITY_ACCESS_KEY: ${{ secrets.GE_TOKEN }}
+
+            -   name: Archive Gradle transforms cache
+                uses: actions/upload-artifact@v4
+                if: always()
+                with:
+                    name: build_${{ matrix.vendor }}
+                    path: /home/runner/.gradle/caches/9.2.0/transforms
+                    retention-days: 7
